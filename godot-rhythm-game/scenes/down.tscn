@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdwgfrcdw8xym"]
+
+[ext_resource type="Script" uid="uid://d1mj4rbmxi674" path="res://engine/scripts/down.gd" id="1_ahqsr"]
+[ext_resource type="Texture2D" uid="uid://d103xrudn3any" path="res://assets/downnew.png" id="2_gikqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gikqw"]
+size = Vector2(82, 82)
+
+[node name="down" type="Area2D" unique_id=557757960]
+script = ExtResource("1_ahqsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506023964]
+scale = Vector2(0.3243125, 0.3217386)
+texture = ExtResource("2_gikqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1401649914]
+shape = SubResource("RectangleShape2D_gikqw")

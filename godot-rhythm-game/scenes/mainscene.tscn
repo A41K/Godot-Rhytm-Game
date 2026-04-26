@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://rlxhkimdd4bh"]
+
+[ext_resource type="Script" uid="uid://cwvfgdp2lq0qv" path="res://engine/scripts/engine.gd" id="1_hm37i"]
+[ext_resource type="PackedScene" uid="uid://484ygw0w5bde" path="res://scenes/up.tscn" id="2_mo382"]
+[ext_resource type="PackedScene" uid="uid://bmvt3ntm1v8n4" path="res://scenes/left.tscn" id="3_nshjd"]
+[ext_resource type="PackedScene" uid="uid://bdwgfrcdw8xym" path="res://scenes/down.tscn" id="4_hpy2g"]
+[ext_resource type="PackedScene" uid="uid://dtoa2e3p0khpr" path="res://scenes/right.tscn" id="5_ao358"]
+
+[node name="mainscene" type="Node2D" unique_id=1359462084]
+
+[node name="Engine" type="Node2D" parent="." unique_id=1457137149]
+script = ExtResource("1_hm37i")
+
+[node name="up" parent="." unique_id=557757960 instance=ExtResource("2_mo382")]
+position = Vector2(415, 327)
+scale = Vector2(1.5, 1.5)
+
+[node name="left" parent="." unique_id=1390404976 instance=ExtResource("3_nshjd")]
+position = Vector2(563, 327)
+scale = Vector2(1.5, 1.5)
+
+[node name="down" parent="." unique_id=320205998 instance=ExtResource("4_hpy2g")]
+position = Vector2(708, 328)
+scale = Vector2(1.5, 1.5)
+
+[node name="right" parent="." unique_id=389507052 instance=ExtResource("5_ao358")]
+position = Vector2(861, 328)
+scale = Vector2(1.5, 1.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=651332884]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=906275719]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 389.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 25
+text = "Score: 0 | Combo: 0 | Misses: 0"

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bmvt3ntm1v8n4"]
+
+[ext_resource type="Script" uid="uid://de4ss6bc0yqev" path="res://engine/scripts/left.gd" id="1_dusdk"]
+[ext_resource type="Texture2D" uid="uid://cyqlyweccwvq0" path="res://assets/leftnew.png" id="2_sghaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sghaw"]
+size = Vector2(82, 82)
+
+[node name="left" type="Area2D" unique_id=557757960]
+script = ExtResource("1_dusdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=476190496]
+scale = Vector2(0.3243125, 0.3217386)
+texture = ExtResource("2_sghaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=180806642]
+shape = SubResource("RectangleShape2D_sghaw")

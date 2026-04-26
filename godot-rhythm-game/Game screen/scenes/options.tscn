@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b4bv2yp0c2kg1"]
+
+[ext_resource type="FontFile" uid="uid://cx8va3ux7hfrd" path="res://Game screen/assets/segoeuithis.ttf" id="2_4m80n"]
+[ext_resource type="Script" uid="uid://dglbyyuk1tnqa" path="res://Game screen/scripts/arrow_types.gd" id="4_hvus5"]
+[ext_resource type="Script" uid="uid://5kf4frj6p71m" path="res://Game screen/scripts/options_window.gd" id="4_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krlpc"]
+size = Vector2(400, 300)
+
+[node name="Options" type="Node2D" unique_id=384223475]
+
+[node name="Options" type="Node2D" parent="." unique_id=1042921701]
+position = Vector2(450, 149)
+script = ExtResource("4_script")
+
+[node name="Area2D" type="Area2D" parent="Options" unique_id=348289527]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Options/Area2D" unique_id=1219594605]
+position = Vector2(200, 150)
+shape = SubResource("RectangleShape2D_krlpc")
+
+[node name="Settings" type="Control" parent="Options" unique_id=614680237]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Options/Settings" unique_id=815999061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_4m80n")
+text = "O p t i o n s"
+
+[node name="Circle (ye reference)" type="Control" parent="Options" unique_id=929366003]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -450.0
+offset_top = -149.0
+offset_right = -410.0
+offset_bottom = -109.0
+
+[node name="Label" type="Label" parent="Options/Circle (ye reference)" unique_id=1274943174]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 227.0
+offset_right = 583.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("2_4m80n")
+text = "Arrow Types:"
+
+[node name="Arrow" type="Button" parent="Options/Circle (ye reference)" unique_id=1448909110]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 222.0
+offset_right = 708.0
+offset_bottom = 253.0
+text = "Arrow"
+script = ExtResource("4_hvus5")
+
+[node name="Circle" type="Button" parent="Options/Circle (ye reference)" unique_id=616275996]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 222.0
+offset_right = 844.0
+offset_bottom = 253.0
+text = "Circle"
+script = ExtResource("4_hvus5")
+
+[node name="Triangle" type="Button" parent="Options/Circle (ye reference)" unique_id=1493167779]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 222.0
+offset_right = 786.0
+offset_bottom = 253.0
+text = "Triangle"
+script = ExtResource("4_hvus5")

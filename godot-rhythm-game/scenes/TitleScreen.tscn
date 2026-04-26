@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://0jueyiwl0ol1"]
+
+[ext_resource type="Script" uid="uid://rdsqav666g0h" path="res://scripts/title_screen.gd" id="1_ts"]
+
+[node name="TitleScreen" type="Control" unique_id=1825994946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ts")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1214432246]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=703444427]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 48
+text = "Rhythm game"
+horizontal_alignment = 1
+
+[node name="FreeplayButton" type="Button" parent="VBoxContainer" unique_id=20337107]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Freeplay"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=513094670]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/FreeplayButton" to="." method="_on_freeplay_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
