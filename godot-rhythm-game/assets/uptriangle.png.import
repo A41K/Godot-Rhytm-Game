@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnpv3g6ewgedg"
-path="res://.godot/imported/left.png-23b9104313d414f3d7b5041f7360b7ac.ctex"
+uid="uid://kaceomjeucwc"
+path="res://.godot/imported/uptriangle.png-d550326beea8a172f5e55ff258615772.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/left.png"
-dest_files=["res://.godot/imported/left.png-23b9104313d414f3d7b5041f7360b7ac.ctex"]
+source_file="res://assets/uptriangle.png"
+dest_files=["res://.godot/imported/uptriangle.png-d550326beea8a172f5e55ff258615772.ctex"]
 
 [params]
 

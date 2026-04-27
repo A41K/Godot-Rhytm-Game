@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dxb2p13b6sjdw"]
+
+[ext_resource type="Texture2D" uid="uid://elrgi350x33r" path="res://Game screen/assets/Light-Beige-0109.jpg" id="1_j4b8q"]
+[ext_resource type="Texture2D" uid="uid://duspmy570w7fb" path="res://Game screen/assets/monitor-removebg-preview.png" id="2_7t5q3"]
+[ext_resource type="Texture2D" uid="uid://bsjcm0381q7vc" path="res://Game screen/assets/monitorbackground.jpg" id="3_selip"]
+[ext_resource type="Script" uid="uid://baj6k6v7fbimd" path="res://Game screen/scripts/game.gd" id="4_u77yy"]
+[ext_resource type="Texture2D" uid="uid://c5snsvrwh1vc2" path="res://Game screen/assets/pixel-art-folder-icon-business-and-file-organization-vector-removebg-preview.png" id="5_i2osv"]
+[ext_resource type="FontFile" uid="uid://cx8va3ux7hfrd" path="res://Game screen/assets/segoeuithis.ttf" id="6_yndb7"]
+[ext_resource type="Script" uid="uid://bfrfre4fxxout" path="res://Game screen/scripts/achivements.gd" id="7_1273d"]
+[ext_resource type="Texture2D" uid="uid://j60hpwbstfyl" path="res://Game screen/assets/trophy-removebg-preview.png" id="8_434rx"]
+[ext_resource type="Script" uid="uid://b4rjh3u6b8pyn" path="res://Game screen/scripts/options.gd" id="9_nhu7w"]
+[ext_resource type="Texture2D" uid="uid://3x8pvgpu7s6b" path="res://Game screen/assets/gear-removebg-preview.png" id="10_l587x"]
+[ext_resource type="Texture2D" uid="uid://bk45mw7wolgsk" path="res://Game screen/assets/mahogany.jpg" id="11_hnnnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4trpg"]
+size = Vector2(34, 31)
+
+[node name="computer_open" type="Node2D" unique_id=1743230178]
+position = Vector2(0, -19)
+
+[node name="LightBeige0109" type="Sprite2D" parent="." unique_id=5002399]
+position = Vector2(619, 350)
+texture = ExtResource("1_j4b8q")
+
+[node name="MonitorRemovebgPreview" type="Sprite2D" parent="." unique_id=1328066703]
+position = Vector2(640.00006, 373)
+scale = Vector2(1.6518265, 1.6518265)
+texture = ExtResource("2_7t5q3")
+
+[node name="Applications + Background" type="Node2D" parent="." unique_id=1503306906]
+position = Vector2(0, 1)
+
+[node name="Monitorbackground" type="Sprite2D" parent="Applications + Background" unique_id=1093440214]
+position = Vector2(645, 295)
+scale = Vector2(0.43020833, 0.36562502)
+texture = ExtResource("3_selip")
+
+[node name="Game" type="Area2D" parent="Applications + Background" unique_id=1346055163]
+position = Vector2(312, 116)
+script = ExtResource("4_u77yy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Applications + Background/Game" unique_id=1860624323]
+position = Vector2(-1.4305115e-05, 0.99999976)
+scale = Vector2(0.08400005, 0.08400005)
+texture = ExtResource("5_i2osv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Applications + Background/Game" unique_id=813861135]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4trpg")
+
+[node name="Label" type="Label" parent="Applications + Background/Game" unique_id=802350752]
+offset_left = -37.0
+offset_top = 13.0
+offset_right = 38.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("6_yndb7")
+theme_override_font_sizes/font_size = 12
+text = "game.exe"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Achivements" type="Area2D" parent="Applications + Background" unique_id=1683955744]
+position = Vector2(392, 116)
+script = ExtResource("7_1273d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Applications + Background/Achivements" unique_id=6285668]
+position = Vector2(-0.49998128, 0.49999353)
+scale = Vector2(0.118, 0.10600004)
+texture = ExtResource("8_434rx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Applications + Background/Achivements" unique_id=1110540590]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4trpg")
+
+[node name="Label" type="Label" parent="Applications + Background/Achivements" unique_id=34438285]
+offset_left = -37.0
+offset_top = 14.0
+offset_right = 38.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("6_yndb7")
+theme_override_font_sizes/font_size = 12
+text = "ach.exe"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Area2D" parent="Applications + Background" unique_id=646243908]
+position = Vector2(468, 117)
+script = ExtResource("9_nhu7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Applications + Background/Options" unique_id=958095647]
+position = Vector2(0.49997437, 0.4999994)
+scale = Vector2(0.15555547, 0.14666668)
+texture = ExtResource("10_l587x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Applications + Background/Options" unique_id=452637741]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4trpg")
+
+[node name="Label" type="Label" parent="Applications + Background/Options" unique_id=2108221425]
+offset_left = -37.0
+offset_top = 14.0
+offset_right = 38.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("6_yndb7")
+theme_override_font_sizes/font_size = 12
+text = "options.exe"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Mahogany" type="Sprite2D" parent="." unique_id=2113979445]
+position = Vector2(624.25, 799)
+scale = Vector2(4.2056856, 1)
+texture = ExtResource("11_hnnnp")

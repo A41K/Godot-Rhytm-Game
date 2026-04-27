@@ -60,27 +60,40 @@ text = "Arrow Types:"
 
 [node name="Arrow" type="Button" parent="Options/Circle (ye reference)" unique_id=1448909110]
 layout_mode = 0
-offset_left = 652.0
+offset_left = 626.0
 offset_top = 222.0
-offset_right = 708.0
+offset_right = 677.0
 offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Arrow"
 script = ExtResource("4_hvus5")
 
 [node name="Circle" type="Button" parent="Options/Circle (ye reference)" unique_id=616275996]
 layout_mode = 0
-offset_left = 792.0
+offset_left = 753.0
 offset_top = 222.0
-offset_right = 844.0
+offset_right = 800.0
 offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Circle"
 script = ExtResource("4_hvus5")
 
 [node name="Triangle" type="Button" parent="Options/Circle (ye reference)" unique_id=1493167779]
 layout_mode = 0
-offset_left = 715.0
+offset_left = 683.0
 offset_top = 222.0
-offset_right = 786.0
+offset_right = 747.0
 offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Triangle"
+script = ExtResource("4_hvus5")
+
+[node name="Star" type="Button" parent="Options/Circle (ye reference)" unique_id=1517245608]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 222.0
+offset_right = 842.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_4m80n")
+text = "Star"
 script = ExtResource("4_hvus5")

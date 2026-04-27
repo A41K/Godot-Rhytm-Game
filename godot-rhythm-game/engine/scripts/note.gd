@@ -26,7 +26,9 @@ func setup(p_type: int, p_dir: String, p_hit_time: float, p_target: Vector2, p_s
 		if Global.arrow_type == "circle":
 			type_suffix = "circle"
 		elif Global.arrow_type == "triangle":
-			type_suffix = ""
+			type_suffix = "triangle"
+		elif Global.arrow_type == "star":
+			type_suffix = "star"
 		else: 
 			type_suffix = "new"
 			
@@ -40,9 +42,21 @@ func setup(p_type: int, p_dir: String, p_hit_time: float, p_target: Vector2, p_s
 			4: 
 				sprite.texture = load("res://assets/right" + type_suffix + ".png")
 		
-	
+
 		sprite.scale = Vector2(0.28, 0.28)
-	
+
+	var dir_vector = Vector2.ZERO
+	match spawn_dir:
+		"u": dir_vector = Vector2(0, -1) 
+		"d": dir_vector = Vector2(0, 1)  
+		"l": dir_vector = Vector2(0, -1) 
+		"r": dir_vector = Vector2(0, -1) 
+		_: dir_vector = Vector2(0, -1)
+
+	var current_time = engine.time_elapsed
+	var time_left = hit_time - current_time
+	position = target_pos + (dir_vector * (time_left * speed))
+
 func _process(_delta: float):
 	if not is_instance_valid(engine):
 		return

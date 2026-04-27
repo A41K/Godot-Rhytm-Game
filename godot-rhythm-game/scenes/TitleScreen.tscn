@@ -32,7 +32,7 @@ theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_font_sizes/font_size = 48
-text = "Rhythm game"
+text = "DotRhythm"
 horizontal_alignment = 1
 
 [node name="FreeplayButton" type="Button" parent="VBoxContainer" unique_id=20337107]
@@ -43,7 +43,7 @@ text = "Freeplay"
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=513094670]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "Back to Computer"
 
 [connection signal="pressed" from="VBoxContainer/FreeplayButton" to="." method="_on_freeplay_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

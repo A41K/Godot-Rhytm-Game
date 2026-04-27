@@ -36,21 +36,54 @@ func add_hit(accuracy: float) -> void:
 
 	if accuracy < 0.05:
 		score += 300
+		show_judgement_image("SICK")
 	elif accuracy < 0.1:
 		score += 150
+		show_judgement_image("OK")
 	elif accuracy < 0.2:
 		score += 50
+		show_judgement_image("BAD")
+		add_miss(false) 
+		return
 	else:
-		return add_miss()
+		show_judgement_image("MISS")
+		return add_miss(true)
 		
 	combo += 1
 	update_score_ui()
 
-func add_miss() -> void:
+func add_miss(is_full_miss: bool = true) -> void:
 	combo = 0
 	misses += 1
-	score = max(0, score - 100) 
+	score -= 100
+	if is_full_miss:
+		show_judgement_image("MISS")
 	update_score_ui()
+
+func show_judgement_image(judgement: String) -> void:
+	var canvas = get_parent().get_node_or_null("CanvasLayer")
+	if not canvas:
+		return
+	
+	var tex_rect = TextureRect.new()
+	var tex = load("res://images/" + judgement + ".png")
+	if tex:
+		tex_rect.texture = tex
+	
+	
+	var viewport_size = get_viewport_rect().size
+	if tex:
+		tex_rect.position = Vector2(100, 100)
+	else:
+		tex_rect.position = Vector2(100, 100)
+	
+	
+	canvas.add_child(tex_rect)
+	var tween = create_tween()
+	
+	tween.tween_property(tex_rect, "position", tex_rect.position + Vector2(0, -50), 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(tex_rect, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_callback(tex_rect.queue_free)
 
 func update_score_ui() -> void:
 	var label = get_parent().get_node_or_null("CanvasLayer/ScoreLabel")
@@ -67,11 +100,11 @@ func load_chart(c_name: String) -> void:
 			var data = json.data
 			bpm = float(data.get("bpm", 120.0))
 			if data.has("scroll_speed"):
-				scroll_speed = float(data.get("scroll_speed"))
+				scroll_speed = float(data["scroll_speed"])
 			crotchet = 60.0 / bpm
 			chart_data = data.get("notes", [])
 			
-			var song_name = data.get("song", "test")
+			var song_name = data.get("song", "novacane")
 			var audio_mp3 = "res://songs/" + song_name + ".mp3"
 			var audio_ogg = "res://songs/" + song_name + ".ogg"
 			var audio_flac = "res://songs/" + song_name + ".flac"
@@ -119,6 +152,12 @@ func start_song() -> void:
 	current_beat = 0
 	next_note_idx = 0
 	is_playing = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().paused = true
+		var escape_menu = load("res://scenes/escape_menu.tscn").instantiate()
+		get_tree().root.add_child(escape_menu)
 
 func _process(delta: float) -> void:
 	if not is_playing: return

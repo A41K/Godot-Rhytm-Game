@@ -16,7 +16,9 @@ func _ready() -> void:
 		if Global.arrow_type == "circle":
 			type_suffix = "circle"
 		elif Global.arrow_type == "triangle":
-			type_suffix = ""
+			type_suffix = "triangle"
+		elif Global.arrow_type == "star":
+			type_suffix = "star"
 		else:
 			type_suffix = "new"
 		sprite.texture = load("res://assets/up" + type_suffix + ".png")

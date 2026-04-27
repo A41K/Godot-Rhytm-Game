@@ -1,7 +1,10 @@
 {
-  "song": "novacane",
-  "bpm": 92.29,
-  "scroll_speed": 400.0,
+  "song": "Novacane",
+  "bpm": 180.0,
+  "scroll_speed": 800.0,
+  "cover": "res://images/Covers/novacane.jpg",
+  "music": "res://songs/novacane.mp3",
+  "color": "#17a2b8",
   "notes": [
     {
       "beat": 0.25,
@@ -2263,5 +2266,8 @@
       "lane": "left",
       "dir": "d"
     }
-  ]
+  ],
+  "cover": "res://Game screen/assets/monitorbackground.jpg",
+  "music": "res://songs/novacane.mp3",
+  "color": "#4A90E2"
 }

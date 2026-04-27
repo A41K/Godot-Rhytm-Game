@@ -30,9 +30,9 @@ scale = Vector2(1.5, 1.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=651332884]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=906275719]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 389.0
-offset_bottom = 55.0
+offset_left = 11.0
+offset_top = 683.0
+offset_right = 380.0
+offset_bottom = 718.0
 theme_override_font_sizes/font_size = 25
 text = "Score: 0 | Combo: 0 | Misses: 0"
