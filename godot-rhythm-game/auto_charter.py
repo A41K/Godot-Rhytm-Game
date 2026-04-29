@@ -4,6 +4,12 @@ import argparse
 import os
 import numpy as np
 
+
+# Example usage:
+# python auto_charter.py "songs/novacane.mp3" "novacane_expert" --diff 1.5 --- HARD
+# python auto_charter.py "songs/novacane.mp3" "novacane_easy" --diff 0.5 --- EASY
+# python auto_charter.py "songs/novacane.mp3" "novacane_normal" --diff 1.0 --- NORMAL
+
 try:
     import librosa
 except ImportError:

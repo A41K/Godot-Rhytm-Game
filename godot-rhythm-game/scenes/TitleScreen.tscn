@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://0jueyiwl0ol1"]
+[gd_scene format=3 uid="uid://bxa7ifghb4o83"]
 
 [ext_resource type="Script" uid="uid://rdsqav666g0h" path="res://scripts/title_screen.gd" id="1_ts"]
 
-[node name="TitleScreen" type="Control" unique_id=1825994946]
+[node name="TitleScreen" type="Control" unique_id=563092461]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,39 +11,105 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ts")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1214432246]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=639279311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=782501188]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = 100.0
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1801096778]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+alignment = 1
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=703444427]
+[node name="TitleBox" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=780095275]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 5
-theme_override_font_sizes/font_size = 48
-text = "DotRhythm"
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LeftArrowLabel" type="Label" parent="Panel/VBoxContainer/TitleBox" unique_id=1835240194]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer/TitleBox" unique_id=970752169]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "On the Dot"
 horizontal_alignment = 1
 
-[node name="FreeplayButton" type="Button" parent="VBoxContainer" unique_id=20337107]
+[node name="RightArrowLabel" type="Label" parent="Panel/VBoxContainer/TitleBox" unique_id=901100001]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = ">"
+
+[node name="StoryModeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1650600184]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Story Mode"
+flat = true
+
+[node name="MidButtons" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1715658409]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="FreeplayButton" type="Button" parent="Panel/VBoxContainer/MidButtons" unique_id=1495874050]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Freeplay"
+flat = true
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=513094670]
+[node name="ExtrasButton" type="Button" parent="Panel/VBoxContainer/MidButtons" unique_id=1227206210]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Back to Computer"
+disabled = true
+text = "Extras (🔒)"
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/FreeplayButton" to="." method="_on_freeplay_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer" unique_id=412833129]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Go back to desktop"
+flat = true
+
+[node name="RightArrowLabel" type="Label" parent="." unique_id=1969674565]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 138.0
+offset_right = 636.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 56
+text = "^"
+
+[connection signal="pressed" from="Panel/VBoxContainer/StoryModeButton" to="." method="_on_story_mode_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MidButtons/FreeplayButton" to="." method="_on_freeplay_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

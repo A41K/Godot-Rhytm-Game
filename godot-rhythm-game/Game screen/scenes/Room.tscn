@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://btadd8ucfo2q6" path="res://Game screen/assets/room.png" id="1_hn0fr"]
 [ext_resource type="Script" uid="uid://cv8lp4s00hhrv" path="res://Game screen/scripts/desk.gd" id="2_bj20h"]
 [ext_resource type="Texture2D" uid="uid://xvaixy01covf" path="res://Game screen/assets/Desk.png" id="2_lexrx"]
+[ext_resource type="Script" uid="uid://bwjy45slfjv03" path="res://Game screen/scripts/endless_platformer.gd" id="4_d42gj"]
+[ext_resource type="Texture2D" uid="uid://ll55ohpyl5jb" path="res://icon.svg" id="5_r1hvx"]
+[ext_resource type="Texture2D" uid="uid://puf8i1y1p8tp" path="res://Game screen/assets/Computer-removebg-preview.png" id="6_r1hvx"]
+[ext_resource type="Script" uid="uid://csuutq17tk34o" path="res://Game screen/scripts/cutter.gd" id="7_d5ay3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_bj20h"]
 a = Vector2(-169.91667, -85.25)
@@ -22,6 +26,12 @@ b = Vector2(-142.83334, -85.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5ay3"]
 size = Vector2(10.916666, 3.4166672)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1hvx"]
+size = Vector2(8.666668, 5.4583325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdh57"]
+size = Vector2(36, 36)
+
 [node name="Room" type="Node2D" unique_id=1467527858]
 
 [node name="Room" type="Sprite2D" parent="." unique_id=861365097]
@@ -35,6 +45,11 @@ script = ExtResource("2_bj20h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Desk" unique_id=822270568]
 texture = ExtResource("2_lexrx")
+
+[node name="ComputerRemovebgPreview" type="Sprite2D" parent="Desk" unique_id=277529019]
+position = Vector2(-5.0000305, -133)
+scale = Vector2(0.6842832, 0.6869265)
+texture = ExtResource("6_r1hvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk" unique_id=2028375641]
 position = Vector2(1881.0001, 953.99994)
@@ -65,3 +80,39 @@ shape = SubResource("RectangleShape2D_d42gj")
 position = Vector2(-59.5, 57.5)
 scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_d5ay3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Desk" unique_id=1217114445]
+position = Vector2(-3, -160.75)
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_r1hvx")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Desk" unique_id=1140047672]
+position = Vector2(-1, -119)
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_r1hvx")
+
+[node name="EndlessPlatformer" type="Area2D" parent="." unique_id=1121522724]
+position = Vector2(317, 362)
+script = ExtResource("4_d42gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="EndlessPlatformer" unique_id=115192517]
+position = Vector2(151, -77.99999)
+scale = Vector2(0.28125012, 0.28125012)
+texture = ExtResource("5_r1hvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndlessPlatformer" unique_id=1645659278]
+position = Vector2(151, -78)
+shape = SubResource("RectangleShape2D_bdh57")
+
+[node name="cutter" type="Area2D" parent="." unique_id=464453518]
+position = Vector2(388, 360)
+script = ExtResource("7_d5ay3")
+
+[node name="Sprite2D" type="Sprite2D" parent="cutter" unique_id=501462224]
+position = Vector2(151, -77.99999)
+scale = Vector2(0.28125012, 0.28125012)
+texture = ExtResource("5_r1hvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cutter" unique_id=548611062]
+position = Vector2(151, -78)
+shape = SubResource("RectangleShape2D_bdh57")

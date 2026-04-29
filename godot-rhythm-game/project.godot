@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot-Rhythm-Game"
-run/main_scene="uid://6k3ycp81xxvd"
+run/main_scene="uid://cn85fqukph1ex"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ Global="*res://scripts/global.gd"
 
 window/size/viewport_width=1250
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

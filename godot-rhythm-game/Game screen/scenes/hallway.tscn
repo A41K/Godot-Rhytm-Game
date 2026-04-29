@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cn85fqukph1ex"]
+
+[ext_resource type="Texture2D" uid="uid://bekvwy686opyq" path="res://Game screen/assets/hallway.webp" id="1_22ffv"]
+[ext_resource type="Script" uid="uid://chup0indnt5ga" path="res://Game screen/scripts/hallway.gd" id="2_pkk1l"]
+[ext_resource type="Texture2D" uid="uid://chs4q46rkidvc" path="res://Game screen/assets/empty image.jpg" id="3_lvuje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvuje"]
+size = Vector2(194, 380.75)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gyqj8"]
+a = Vector2(0.09999943, -1.5)
+b = Vector2(19.199999, 1.6999989)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rpgx7"]
+a = Vector2(-0.8000002, 3)
+b = Vector2(18.099998, -0.79999924)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tooltip"]
+bg_color = Color(0.12, 0.12, 0.12, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 4
+
+[node name="Hallway" type="Node2D" unique_id=796495347]
+
+[node name="Hallway" type="Sprite2D" parent="." unique_id=2082805338]
+position = Vector2(624.5, 361.75)
+scale = Vector2(1.0425, 1.1523126)
+texture = ExtResource("1_22ffv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1601959659]
+position = Vector2(91, 151)
+script = ExtResource("2_pkk1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1137003968]
+position = Vector2(90, 219.375)
+shape = SubResource("RectangleShape2D_lvuje")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=392813719]
+position = Vector2(-6.999996, 28)
+scale = Vector2(10, 10)
+shape = SubResource("SegmentShape2D_gyqj8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1225106693]
+position = Vector2(2.000002, 418.99997)
+scale = Vector2(10, 10)
+shape = SubResource("SegmentShape2D_rpgx7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=345221359]
+position = Vector2(2.000002, 392.99997)
+scale = Vector2(10, 10)
+shape = SubResource("SegmentShape2D_rpgx7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1061934842]
+visible = false
+position = Vector2(89.99999, 232)
+scale = Vector2(0.19799998, 0.48400003)
+texture = ExtResource("3_lvuje")
+
+[node name="TooltipLabel" type="Label" parent="Area2D"]
+visible = false
+offset_left = 60.0
+offset_top = -20.0
+offset_right = 210.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tooltip")
+text = "Go into your room?"
+horizontal_alignment = 1
+vertical_alignment = 1

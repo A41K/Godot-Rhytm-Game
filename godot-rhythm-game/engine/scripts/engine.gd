@@ -104,7 +104,7 @@ func load_chart(c_name: String) -> void:
 			crotchet = 60.0 / bpm
 			chart_data = data.get("notes", [])
 			
-			var song_name = data.get("song", "novacane")
+			var song_name = str(data.get("song", "novacane")).to_lower().replace(" ", "")
 			var audio_mp3 = "res://songs/" + song_name + ".mp3"
 			var audio_ogg = "res://songs/" + song_name + ".ogg"
 			var audio_flac = "res://songs/" + song_name + ".flac"
@@ -123,7 +123,7 @@ func load_chart(c_name: String) -> void:
 			print("JSON Parse Error: ", json.get_error_message())
 		return
 
-	file_path = "res://charts/" + c_name + ".txt"
+	file_path = "res://charts/" + c_name + ".json"
 	if not FileAccess.file_exists(file_path):
 		print("Chart not found: ", file_path)
 		return

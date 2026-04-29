@@ -1,7 +1,7 @@
 {
   "song": "Novacane",
   "bpm": 92.29,
-  "cover": "res://images/Covers/novacane.jpg",
+  "cover": "images/Covers/novacane.png",
   "music": "res://songs/novacane.mp3",
   "color": "#17a2b8",
   "scroll_speed": 400.0,
