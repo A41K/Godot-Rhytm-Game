@@ -2266,8 +2266,5 @@
 	  "lane": "left",
 	  "dir": "d"
 	}
-  ],
-  "cover": "res://Game screen/assets/monitorbackground.jpg",
-  "music": "res://songs/novacane.mp3",
-  "color": "#4A90E2"
+	]
 }

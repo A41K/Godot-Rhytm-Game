@@ -12,6 +12,7 @@
 @onready var audio_player = $AudioStreamPlayer
 @onready var easy_btn = $Difficulties/EasyBtn
 @onready var hard_btn = $Difficulties/HardBtn
+@onready var best_score_label = $"Best Score"
 
 var chart_data: Dictionary = {}
 var all_songs: Array = []
@@ -163,10 +164,25 @@ func _on_song_selected(chart_name: String, btn: Button) -> void:
 				audio_player.stream = load(chart_data["music"])
 				audio_player.play()
 	
+	update_best_score_label(chart_name)
+	
 	
 	var tw_cover = get_tree().create_tween()
 	tw_cover.tween_property(cover_frame, "rotation_degrees", -5.0, 0.1)
 	tw_cover.tween_property(cover_frame, "rotation_degrees", 0.0, 0.3).set_ease(Tween.EASE_OUT)
+
+func update_best_score_label(chart_name: String) -> void:
+	var global = get_node_or_null("/root/Global")
+	if not global or best_score_label == null:
+		return
+	var easy_score = global.best_scores.get(chart_name + "_easy", 0)
+	var hard_score = global.best_scores.get(chart_name + "_hard", 0)
+	var normal_score = global.best_scores.get(chart_name, 0)
+	
+	var text = "Best Score\n"
+	text += "Easy: " + str(easy_score) + "\n"
+	text += "Hard: " + str(hard_score)
+	best_score_label.text = text
 
 func start_song(difficulty_suffix: String = ""):
 	var global = get_node_or_null("/root/Global")

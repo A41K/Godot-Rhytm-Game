@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmt5tppg6a56j"]
 
 [ext_resource type="Script" uid="uid://vf3umsg2cvdn" path="res://scripts/escape_menu.gd" id="1_asdfg"]
+[ext_resource type="StyleBox" uid="uid://dsm1xocouaqt1" path="res://button style.tres" id="2_qsd2a"]
 
 [node name="EscapeMenu" type="CanvasLayer" unique_id=1479673783]
 process_mode = 3
@@ -32,11 +33,13 @@ theme_override_constants/separation = 20
 [node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=524590378]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_qsd2a")
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1028590254]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_qsd2a")
 text = "Back to Titlescreen"
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]

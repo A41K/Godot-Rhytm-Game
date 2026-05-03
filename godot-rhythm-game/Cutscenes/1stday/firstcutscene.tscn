@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://doopp5tisw2oj"]
+
+[ext_resource type="Script" uid="uid://b17gd2jlcdami" path="res://Cutscenes/1stday/firstcutscene.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dqxmxgpbdvt3c" path="res://sounds/speaking.mp3" id="2_dutod"]
+
+[node name="Firstcutscene" type="Node2D" unique_id=1248903521]
+script = ExtResource("1")
+type_sound = ExtResource("2_dutod")
+typing_speed = 30.0

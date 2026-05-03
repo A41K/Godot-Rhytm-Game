@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://byexfn7ebsy6b"]
+
+[ext_resource type="Script" uid="uid://b8vo73pfnebej" path="res://Game screen/scripts/credits_window.gd" id="1_sfonr"]
+[ext_resource type="FontFile" uid="uid://cx8va3ux7hfrd" path="res://Game screen/assets/segoeuithis.ttf" id="2_1d0lf"]
+[ext_resource type="StyleBox" uid="uid://m7ho5mao4oba" path="res://text style.tres" id="3_1d0lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewo2r"]
+size = Vector2(400, 300)
+
+[node name="Credits" type="Node2D" unique_id=1074258542]
+
+[node name="Credits" type="Node2D" parent="." unique_id=363977293]
+position = Vector2(450, 149)
+script = ExtResource("1_sfonr")
+
+[node name="Area2D" type="Area2D" parent="Credits" unique_id=1840142189]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Credits/Area2D" unique_id=471172897]
+position = Vector2(200, 150)
+shape = SubResource("RectangleShape2D_ewo2r")
+
+[node name="Settings" type="Control" parent="Credits" unique_id=476050009]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Credits/Settings" unique_id=575923420]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.8
+anchor_top = 0.5
+anchor_right = 4.75
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+theme_override_styles/normal = ExtResource("3_1d0lf")
+text = "C r e d i t s"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings2" type="Control" parent="Credits" unique_id=1185100715]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -450.0
+offset_top = -149.0
+offset_right = -410.0
+offset_bottom = -109.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Category" type="Label" parent="Credits/Settings2" unique_id=2043535292]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.425
+anchor_top = 5.45
+anchor_right = 16.0
+anchor_bottom = 5.45
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+text = "Developed and Coded by:"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="A41K" type="Label" parent="Credits/Settings2" unique_id=1401060266]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.4
+anchor_top = 6.05
+anchor_right = 16.025
+anchor_bottom = 6.05
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+text = "A41K"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Category2" type="Label" parent="Credits/Settings2" unique_id=910195480]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -70.770004
+anchor_top = 3.3693757
+anchor_right = -62.195
+anchor_bottom = 3.3693757
+offset_left = 3280.8
+offset_top = 154.22498
+offset_right = 3337.8
+offset_bottom = 177.22498
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+text = "Textures and Charts by:"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="A41K2" type="Label" parent="Credits/Settings2" unique_id=31702222]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.4
+anchor_top = 7.475
+anchor_right = 16.025
+anchor_bottom = 7.475
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+text = "A41K"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Category3" type="Label" parent="Credits/Settings2" unique_id=728894921]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 554.91046
+anchor_top = -0.8705139
+anchor_right = 563.4855
+anchor_bottom = -0.8705139
+offset_left = -21746.418
+offset_top = 388.82056
+offset_right = -21689.418
+offset_bottom = 411.82056
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1d0lf")
+text = "Other links in the textures.txt"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

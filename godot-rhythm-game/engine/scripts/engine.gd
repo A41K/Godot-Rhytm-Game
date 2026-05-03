@@ -23,6 +23,7 @@ var music_player: AudioStreamPlayer
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
+	music_player.bus = 'Music'
 	add_child(music_player)
 	
 	var global = get_node_or_null("/root/Global")
@@ -32,17 +33,28 @@ func _ready() -> void:
 	load_chart(chart_name)
 	update_score_ui()
 
+func play_hit_sound() -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load("res://sounds/keypress.wav")
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func add_hit(accuracy: float) -> void:
 
 	if accuracy < 0.05:
 		score += 300
 		show_judgement_image("SICK")
+		play_hit_sound()
 	elif accuracy < 0.1:
 		score += 150
 		show_judgement_image("OK")
+		play_hit_sound()
 	elif accuracy < 0.2:
 		score += 50
 		show_judgement_image("BAD")
+		play_hit_sound()
 		add_miss(false) 
 		return
 	else:
@@ -186,6 +198,12 @@ func _process(delta: float) -> void:
 			next_note_idx += 1
 		else:
 			break
+			
+	if next_note_idx >= chart_data.size() and time_elapsed > 0 and not music_player.playing:
+		var global = get_node_or_null("/root/Global")
+		if global:
+			global.save_score(chart_name, score)
+		get_tree().change_scene_to_file("res://scenes/Freeplay.tscn")
 
 func spawn_note(note_data: Dictionary, hit_time: float) -> void:
 	

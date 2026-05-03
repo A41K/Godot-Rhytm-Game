@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4bv2yp0c2kg1"]
 
 [ext_resource type="FontFile" uid="uid://cx8va3ux7hfrd" path="res://Game screen/assets/segoeuithis.ttf" id="2_4m80n"]
+[ext_resource type="StyleBox" uid="uid://m7ho5mao4oba" path="res://text style.tres" id="3_hvus5"]
 [ext_resource type="Script" uid="uid://dglbyyuk1tnqa" path="res://Game screen/scripts/arrow_types.gd" id="4_hvus5"]
 [ext_resource type="Script" uid="uid://5kf4frj6p71m" path="res://Game screen/scripts/options_window.gd" id="4_script"]
 
@@ -24,13 +25,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Options/Settings" unique_id=815999061]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = -3.825
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 4.75
 anchor_bottom = 0.5
 offset_left = 153.0
 offset_top = 13.0
@@ -39,7 +41,10 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_4m80n")
+theme_override_styles/normal = ExtResource("3_hvus5")
 text = "O p t i o n s"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Circle (ye reference)" type="Control" parent="Options" unique_id=929366003]
 layout_mode = 3
@@ -48,6 +53,7 @@ offset_left = -450.0
 offset_top = -149.0
 offset_right = -410.0
 offset_bottom = -109.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Options/Circle (ye reference)" unique_id=1274943174]
 layout_mode = 0
@@ -56,7 +62,9 @@ offset_top = 227.0
 offset_right = 583.0
 offset_bottom = 250.0
 theme_override_fonts/font = ExtResource("2_4m80n")
+theme_override_styles/normal = ExtResource("3_hvus5")
 text = "Arrow Types:"
+metadata/_edit_use_anchors_ = true
 
 [node name="Arrow" type="Button" parent="Options/Circle (ye reference)" unique_id=1448909110]
 layout_mode = 0
@@ -67,6 +75,7 @@ offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Arrow"
 script = ExtResource("4_hvus5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Circle" type="Button" parent="Options/Circle (ye reference)" unique_id=616275996]
 layout_mode = 0
@@ -77,6 +86,7 @@ offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Circle"
 script = ExtResource("4_hvus5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Triangle" type="Button" parent="Options/Circle (ye reference)" unique_id=1493167779]
 layout_mode = 0
@@ -87,6 +97,7 @@ offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Triangle"
 script = ExtResource("4_hvus5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Star" type="Button" parent="Options/Circle (ye reference)" unique_id=1517245608]
 layout_mode = 0
@@ -97,3 +108,80 @@ offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("2_4m80n")
 text = "Star"
 script = ExtResource("4_hvus5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Volumes" type="Control" parent="Options" unique_id=1555735704]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterLabel" type="Label" parent="Options/Volumes" unique_id=663147034]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 113.0
+offset_right = 219.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_4m80n")
+theme_override_styles/normal = ExtResource("3_hvus5")
+text = "Master Volume"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterSlider" type="HSlider" parent="Options/Volumes" unique_id=675828586]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 138.0
+offset_right = 239.0
+offset_bottom = 154.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicLabel" type="Label" parent="Options/Volumes" unique_id=1604596396]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 163.0
+offset_right = 219.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("2_4m80n")
+theme_override_styles/normal = ExtResource("3_hvus5")
+text = "Music Volume"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicSlider" type="HSlider" parent="Options/Volumes" unique_id=1969976266]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 188.0
+offset_right = 239.0
+offset_bottom = 204.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXLabel" type="Label" parent="Options/Volumes" unique_id=1182497251]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 213.0
+offset_right = 219.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("2_4m80n")
+theme_override_styles/normal = ExtResource("3_hvus5")
+text = "SFX Volume"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXSlider" type="HSlider" parent="Options/Volumes" unique_id=1457773970]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 238.0
+offset_right = 239.0
+offset_bottom = 254.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+metadata/_edit_use_anchors_ = true

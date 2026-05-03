@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://cv8lp4s00hhrv" path="res://Game screen/scripts/desk.gd" id="2_bj20h"]
 [ext_resource type="Texture2D" uid="uid://xvaixy01covf" path="res://Game screen/assets/Desk.png" id="2_lexrx"]
 [ext_resource type="Script" uid="uid://bwjy45slfjv03" path="res://Game screen/scripts/endless_platformer.gd" id="4_d42gj"]
-[ext_resource type="Texture2D" uid="uid://ll55ohpyl5jb" path="res://icon.svg" id="5_r1hvx"]
+[ext_resource type="Texture2D" uid="uid://cy3iq6u60w6bk" path="res://Game screen/assets/Minigames/Platformer.png" id="6_cwd8u"]
 [ext_resource type="Texture2D" uid="uid://puf8i1y1p8tp" path="res://Game screen/assets/Computer-removebg-preview.png" id="6_r1hvx"]
 [ext_resource type="Script" uid="uid://csuutq17tk34o" path="res://Game screen/scripts/cutter.gd" id="7_d5ay3"]
+[ext_resource type="Texture2D" uid="uid://c2lfoeetfrge5" path="res://Game screen/assets/Minigames/item_cutter.png" id="8_6mgnc"]
+[ext_resource type="Texture2D" uid="uid://cg24htvlenoih" path="res://Game screen/assets/Minigames/Minigame_label.png" id="9_w20u8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_bj20h"]
 a = Vector2(-169.91667, -85.25)
@@ -96,9 +98,9 @@ position = Vector2(317, 362)
 script = ExtResource("4_d42gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="EndlessPlatformer" unique_id=115192517]
-position = Vector2(151, -77.99999)
-scale = Vector2(0.28125012, 0.28125012)
-texture = ExtResource("5_r1hvx")
+position = Vector2(150.99998, -77.99999)
+scale = Vector2(0.14062493, 0.14062503)
+texture = ExtResource("6_cwd8u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndlessPlatformer" unique_id=1645659278]
 position = Vector2(151, -78)
@@ -109,10 +111,15 @@ position = Vector2(388, 360)
 script = ExtResource("7_d5ay3")
 
 [node name="Sprite2D" type="Sprite2D" parent="cutter" unique_id=501462224]
-position = Vector2(151, -77.99999)
-scale = Vector2(0.28125012, 0.28125012)
-texture = ExtResource("5_r1hvx")
+position = Vector2(150.49998, -78.00001)
+scale = Vector2(0.1445313, 0.140625)
+texture = ExtResource("8_6mgnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cutter" unique_id=548611062]
 position = Vector2(151, -78)
 shape = SubResource("RectangleShape2D_bdh57")
+
+[node name="MinigameLabel" type="Sprite2D" parent="." unique_id=1945907368]
+position = Vector2(554, 228)
+scale = Vector2(0.32421875, 0.32421875)
+texture = ExtResource("9_w20u8")

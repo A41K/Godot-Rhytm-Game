@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cfwdpspb0w0xt"]
 
+[ext_resource type="Script" uid="uid://bpotrp7a6ocsf" path="res://minigames/Endless Platformer/endless_platformer.gd" id="1"]
+
 [node name="EndlessPlatformer" type="Node2D" unique_id=676528136]
+script = ExtResource("1")

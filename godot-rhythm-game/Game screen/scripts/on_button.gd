@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var apps_bg = $"../Applications + Background"
 @onready var area = $Button
+@export var click_sound: AudioStream = preload("res://sounds/Frontendbutton_up.wav")
+@onready var audio_player := AudioStreamPlayer.new()	
 
 var is_on = false
 var time = 0.0
@@ -10,6 +12,7 @@ func _ready() -> void:
 	apps_bg.modulate = Color(1, 1, 1, 0)
 	apps_bg.visible = false
 	area.input_event.connect(_on_area_2d_input_event)
+	add_child(audio_player)
 
 func _process(delta: float) -> void:
 	if not is_on:
@@ -29,3 +32,5 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			apps_bg.visible = true
 			var tween = create_tween()
 			tween.tween_property(apps_bg, "modulate:a", 1.0, 2.0)
+			audio_player.stream = click_sound
+			audio_player.play()

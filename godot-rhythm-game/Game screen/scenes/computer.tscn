@@ -12,9 +12,11 @@
 [ext_resource type="Script" uid="uid://bfrfre4fxxout" path="res://Game screen/scripts/achivements.gd" id="7_ssr0f"]
 [ext_resource type="Texture2D" uid="uid://3x8pvgpu7s6b" path="res://Game screen/assets/gear-removebg-preview.png" id="9_ssr0f"]
 [ext_resource type="Script" uid="uid://b4rjh3u6b8pyn" path="res://Game screen/scripts/options.gd" id="9_v3o1e"]
+[ext_resource type="Script" uid="uid://dlcpc7ucjulve" path="res://Game screen/scripts/credits.gd" id="11_i7y0k"]
+[ext_resource type="Texture2D" uid="uid://byivbkht27mxw" path="res://Game screen/assets/Creeditsicon-removebg-preview.png" id="12_7ovw7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eepc5"]
-size = Vector2(34, 31)
+size = Vector2(31, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mef7s"]
 radius = 9.0
@@ -108,6 +110,30 @@ offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("6_t01kj")
 theme_override_font_sizes/font_size = 12
 text = "options.exe"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="Area2D" parent="Applications + Background" unique_id=1917897936]
+position = Vector2(314, 186)
+script = ExtResource("11_i7y0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Applications + Background/Credits" unique_id=62447052]
+position = Vector2(-1.4999853, 0.49999824)
+scale = Vector2(0.07749997, 0.077500045)
+texture = ExtResource("12_7ovw7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Applications + Background/Credits" unique_id=225128983]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_eepc5")
+
+[node name="Label" type="Label" parent="Applications + Background/Credits" unique_id=1397283100]
+offset_left = -37.0
+offset_top = 14.0
+offset_right = 38.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("6_t01kj")
+theme_override_font_sizes/font_size = 12
+text = "credits.exe"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
