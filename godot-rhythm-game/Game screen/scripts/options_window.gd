@@ -9,8 +9,12 @@ var top_bar_height = 30
 @onready var master_slider = $Volumes/MasterSlider
 @onready var music_slider = $Volumes/MusicSlider
 @onready var sfx_slider = $Volumes/SFXSlider
+@export var click_sound: AudioStream = preload("res://sounds/Click.mp3")
+@onready var audio_player := AudioStreamPlayer.new()
 
 func _ready() -> void:
+		add_child(audio_player)
+		
 		var area = $Area2D
 		if area:
 				area.input_event.connect(_on_area_2d_input_event)
@@ -93,9 +97,11 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				var x_red = 15
 				var y_center = top_bar_height / 2.0
 
-				if local_pos.distance_to(Vector2(x_red, y_center)) < 30: 
-						if Global:
-								Global.save_settings_to_disk()
+				if local_pos.distance_to(Vector2(x_red, y_center)) < 30: 					
+					audio_player.stream = click_sound
+					audio_player.play()
+					if Global:
+						Global.save_settings_to_disk()
 						var tween = create_tween()
 						tween.tween_property(self, "scale", Vector2.ZERO, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 						tween.tween_callback(func(): get_parent().queue_free() if get_parent() and get_parent().name != "Applications + Background" else queue_free())

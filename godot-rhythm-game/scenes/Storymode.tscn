@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://c17p4pspwiclr"]
+
+[ext_resource type="Script" uid="uid://ccul5bnvuyifh" path="res://scripts/storymode.gd" id="1_story"]
+[ext_resource type="FontFile" uid="uid://ck2mdn42kk8wb" path="res://Game screen/assets/DancingScript-VariableFont_wght.ttf" id="2_01hu6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.08, 0.08, 0.08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uejmr"]
+bg_color = Color(0.20871031, 0.20871007, 0.2087102, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cover"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_easy"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2, 0.6, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hard"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2, 0.8, 0.2, 1)
+
+[node name="Storymode" type="Control" unique_id=845066062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_story")
+
+[node name="Background" type="Panel" parent="." unique_id=92811295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="ArtBackground" type="Panel" parent="." unique_id=576485187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 118.0
+offset_right = -649.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uejmr")
+
+[node name="CoverFrame" type="Panel" parent="." unique_id=9474301]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 194.0
+offset_right = 340.0
+offset_bottom = 404.0
+pivot_offset = Vector2(150, 150)
+theme_override_styles/panel = SubResource("StyleBoxFlat_cover")
+
+[node name="CoverLabel" type="Label" parent="CoverFrame" unique_id=1704737151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Day Art"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoverImage" type="TextureRect" parent="CoverFrame" unique_id=92363323]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="DetailsContainer" type="VBoxContainer" parent="." unique_id=827461937]
+layout_mode = 0
+offset_left = -409.0
+offset_top = 186.0
+offset_right = -59.0
+offset_bottom = 365.0
+theme_override_constants/separation = 10
+
+[node name="Difficulties" type="HBoxContainer" parent="DetailsContainer" unique_id=1921243020]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="RightBackground" type="Panel" parent="." unique_id=1511275555]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = 118.0
+offset_right = -50.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uejmr")
+
+[node name="Title" type="Label" parent="." unique_id=589865225]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 126.0
+offset_top = 130.0
+offset_right = 436.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Story Mode"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=949985626]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 220.0
+offset_right = 1050.0
+offset_bottom = 650.0
+horizontal_scroll_mode = 0
+
+[node name="DayList" type="VBoxContainer" parent="ScrollContainer" unique_id=356360354]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ScrollIndicator" type="ColorRect" parent="." unique_id=1324423035]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 221.0
+offset_right = 1085.0
+offset_bottom = 503.0
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="BackButtonArea" type="Panel" parent="." unique_id=1854168424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 659.0
+offset_right = -1099.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uejmr")
+
+[node name="BackButton" type="Button" parent="." unique_id=1821503552]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="DayName" type="Label" parent="." unique_id=985711478]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 126.0
+offset_right = 392.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 32
+text = "Day Title
+"
+horizontal_alignment = 1
+
+[node name="SongsList" type="Label" parent="." unique_id=1498109118]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 201.0
+offset_right = 548.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 20
+text = "Songs: "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Best Score" type="Label" parent="." unique_id=660016957]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 456.0
+offset_right = 531.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("2_01hu6")
+theme_override_font_sizes/font_size = 28
+text = "Best Overall Score: "
+horizontal_alignment = 1
+
+[node name="EasyBtn" type="Button" parent="." unique_id=1913146609]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 481.0
+offset_right = 230.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_easy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_easy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_easy")
+text = "Easy"
+
+[node name="HardBtn" type="Button" parent="." unique_id=636911935]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 428.0
+offset_right = 230.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hard")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hard")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hard")
+text = "Hard"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="EasyBtn" to="." method="_on_easy_btn_pressed"]
+[connection signal="pressed" from="HardBtn" to="." method="_on_hard_btn_pressed"]

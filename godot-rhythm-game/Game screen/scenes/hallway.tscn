@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bekvwy686opyq" path="res://Game screen/assets/hallway.webp" id="1_22ffv"]
 [ext_resource type="Script" uid="uid://chup0indnt5ga" path="res://Game screen/scripts/hallway.gd" id="2_pkk1l"]
 [ext_resource type="Texture2D" uid="uid://chs4q46rkidvc" path="res://Game screen/assets/empty image.jpg" id="3_lvuje"]
+[ext_resource type="Script" uid="uid://bsu4audstd6wb" path="res://Game screen/scripts/upstairs.gd" id="4_gyqj8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvuje"]
-size = Vector2(194, 380.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyqj8"]
+size = Vector2(189, 383)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_gyqj8"]
 a = Vector2(0.09999943, -1.5)
@@ -21,7 +22,6 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -30,8 +30,10 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
-shadow_color = Color(0, 0, 0, 0.6)
 shadow_size = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvuje"]
+size = Vector2(210.5, 706.6875)
 
 [node name="Hallway" type="Node2D" unique_id=796495347]
 
@@ -45,8 +47,8 @@ position = Vector2(91, 151)
 script = ExtResource("2_pkk1l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1137003968]
-position = Vector2(90, 219.375)
-shape = SubResource("RectangleShape2D_lvuje")
+position = Vector2(90, 221.5)
+shape = SubResource("RectangleShape2D_gyqj8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=392813719]
 position = Vector2(-6.999996, 28)
@@ -69,7 +71,7 @@ position = Vector2(89.99999, 232)
 scale = Vector2(0.19799998, 0.48400003)
 texture = ExtResource("3_lvuje")
 
-[node name="TooltipLabel" type="Label" parent="Area2D"]
+[node name="TooltipLabel" type="Label" parent="Area2D" unique_id=1287312034]
 visible = false
 offset_left = 60.0
 offset_top = -20.0
@@ -78,5 +80,31 @@ offset_bottom = 3.0
 theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tooltip")
 text = "Go into your room?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=535235325]
+position = Vector2(462, 151)
+script = ExtResource("4_gyqj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=913635751]
+position = Vector2(679.75, 226.65625)
+shape = SubResource("RectangleShape2D_lvuje")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=619722991]
+visible = false
+position = Vector2(89.99999, 232)
+scale = Vector2(0.19799998, 0.48400003)
+texture = ExtResource("3_lvuje")
+
+[node name="TooltipLabel" type="Label" parent="Area2D2" unique_id=1773786527]
+visible = false
+offset_left = 60.0
+offset_top = -20.0
+offset_right = 210.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tooltip")
+text = "Go upstairs?"
 horizontal_alignment = 1
 vertical_alignment = 1

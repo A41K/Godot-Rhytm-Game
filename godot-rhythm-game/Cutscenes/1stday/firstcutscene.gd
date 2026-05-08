@@ -8,17 +8,22 @@ const NEXT_SCENE := preload("res://scenes/mainscene.tscn")
 func _ready() -> void:
 	dialogue_script = """
 
+image|res://images/1stday.jpg.##sound=res://sounds/thud.mp3
+
 background|res://images/school.webp|0.5
 
 left|You|Finally!!!!
 left|You|I'm done with school for today.
 left|You|This was really a pain in the ass.
-left|You|I can finally go home and relax.
+left|You|I can finally go home, relax and play with my favourite game.
 
 right|Jamie|Hey! What's up?
 left|You|Hey Jamie! Everythings fine.
 right|Jamie|Want me to walk home with you?
 left|You|Yeah, honestly I really need some company.
+right|Jamie|Well, lucky for you I caught you at the right time.
+right|Jamie|But, it's not like we do this everyday...
+left|You|Yeah, you have a point.
 
 image|res://images/walkhome.jpg|0.5
 background|res://images/infrontofhouse.jpg
@@ -26,6 +31,10 @@ background|res://images/infrontofhouse.jpg
 left|You|Well, thank you for the company. 
 left|You|Like usual I had a great time.
 right|Jamie|Honestly, it's nothing.
+right|Jamie|I know everything is kinda bad right now.
+right|Jamie|I just want to help you
+left|You|Honestly, you're the best.
+right|Jamie|Now get in before your mother bites my head off.
 right|Jamie|Have a great night.
 left|You|Yeah thanks, you too!!
 

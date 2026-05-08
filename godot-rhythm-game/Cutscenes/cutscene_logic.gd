@@ -434,10 +434,10 @@ func _show_overlay_image(entry: Dictionary) -> void:
 
 	var texture_rect := texture as Texture2D
 	if texture_rect == null:
-		return
+		return 
 
 	var path_text := str(entry.get("path", "")).to_lower()
-	var cover_screen := bool(entry.get("cover", false)) or path_text.find("blackscreen") != -1 or path_text.find("walkhome") != -1 or path_text.find("school") != -1
+	var cover_screen := bool(entry.get("cover", false)) or path_text.find("blackscreen") != -1 or path_text.find("walkhome") != -1 or path_text.find("school") != -1 or path_text.find("1stday") != -1
 
 	_overlay_image.texture = texture_rect
 	if cover_screen:

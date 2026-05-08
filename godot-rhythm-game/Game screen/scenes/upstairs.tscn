@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bl2oebqqit2v3"]
+
+[ext_resource type="Texture2D" uid="uid://bp5vdo8eom8iw" path="res://Game screen/assets/upstairs.jpg" id="1_c4q6l"]
+[ext_resource type="Script" uid="uid://ckp5r4n2ttc1w" path="res://Game screen/scripts/downstairs.gd" id="2_urnij"]
+[ext_resource type="Texture2D" uid="uid://chs4q46rkidvc" path="res://Game screen/assets/empty image.jpg" id="3_p1do0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlj0d"]
+size = Vector2(266, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgag4"]
+size = Vector2(266, 292)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4sqo"]
+bg_color = Color(0.12, 0.12, 0.12, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 4
+
+[node name="Upstairs" type="Node2D" unique_id=611557371]
+
+[node name="Upstairs" type="Sprite2D" parent="." unique_id=1953195215]
+position = Vector2(624.49994, 360)
+scale = Vector2(1.2197264, 0.9453125)
+texture = ExtResource("1_c4q6l")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=768924476]
+position = Vector2(462, 151)
+script = ExtResource("2_urnij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=999444576]
+position = Vector2(433, 289)
+shape = SubResource("RectangleShape2D_wlj0d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" unique_id=1431804837]
+position = Vector2(652, 386)
+shape = SubResource("RectangleShape2D_lgag4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1399284041]
+visible = false
+position = Vector2(89.99999, 232)
+scale = Vector2(0.19799998, 0.48400003)
+texture = ExtResource("3_p1do0")
+
+[node name="TooltipLabel" type="Label" parent="Area2D2" unique_id=1038859274]
+visible = false
+offset_left = 60.0
+offset_top = -20.0
+offset_right = 210.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_p4sqo")
+text = "Go downstairs?"
+horizontal_alignment = 1
+vertical_alignment = 1

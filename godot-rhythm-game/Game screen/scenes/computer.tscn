@@ -14,12 +14,36 @@
 [ext_resource type="Script" uid="uid://b4rjh3u6b8pyn" path="res://Game screen/scripts/options.gd" id="9_v3o1e"]
 [ext_resource type="Script" uid="uid://dlcpc7ucjulve" path="res://Game screen/scripts/credits.gd" id="11_i7y0k"]
 [ext_resource type="Texture2D" uid="uid://byivbkht27mxw" path="res://Game screen/assets/Creeditsicon-removebg-preview.png" id="12_7ovw7"]
+[ext_resource type="Script" uid="uid://cfi1070tljaks" path="res://Game screen/scripts/controls.gd" id="13_7d4dw"]
+[ext_resource type="Texture2D" uid="uid://bev7j3yis885b" path="res://Game screen/assets/keyboard-removebg-preview.png" id="14_ops66"]
+[ext_resource type="Script" uid="uid://dfdir7sewywgd" path="res://Game screen/scripts/getup.gd" id="17_v58pc"]
+[ext_resource type="Texture2D" uid="uid://chs4q46rkidvc" path="res://Game screen/assets/empty image.jpg" id="18_upbpy"]
+[ext_resource type="Texture2D" uid="uid://ds10hhtxevody" path="res://assets/downdirection.png" id="19_6ciqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eepc5"]
 size = Vector2(31, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mef7s"]
 radius = 9.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0o1w"]
+bg_color = Color(0.12, 0.12, 0.12, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnbou"]
+size = Vector2(70, 70)
 
 [node name="Computer" type="Node2D" unique_id=153574510]
 position = Vector2(0, -21)
@@ -137,6 +161,30 @@ text = "credits.exe"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Controls" type="Area2D" parent="Applications + Background" unique_id=69961128]
+position = Vector2(393, 186)
+script = ExtResource("13_7d4dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Applications + Background/Controls" unique_id=1497267186]
+position = Vector2(-1.0207295e-05, 1.5000012)
+scale = Vector2(0.06799994, 0.074000016)
+texture = ExtResource("14_ops66")
+
+[node name="Label" type="Label" parent="Applications + Background/Controls" unique_id=897264212]
+offset_left = -37.0
+offset_top = 14.0
+offset_right = 38.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("6_t01kj")
+theme_override_font_sizes/font_size = 12
+text = "controls.exe"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Applications + Background/Controls" unique_id=822771827]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_eepc5")
+
 [node name="On button" type="Node2D" parent="." unique_id=1793678725]
 position = Vector2(0, 7)
 script = ExtResource("4_uk6he")
@@ -151,3 +199,34 @@ shape = SubResource("CircleShape2D_mef7s")
 position = Vector2(624.25, 799)
 scale = Vector2(4.2056856, 1)
 texture = ExtResource("6_eepc5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1491893169]
+position = Vector2(-569, 334)
+script = ExtResource("17_v58pc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=429769558]
+visible = false
+position = Vector2(89.99999, 232)
+scale = Vector2(0.19799998, 0.48400003)
+texture = ExtResource("18_upbpy")
+
+[node name="TooltipLabel" type="Label" parent="Area2D" unique_id=105306891]
+visible = false
+offset_left = 60.0
+offset_top = -20.0
+offset_right = 210.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_p0o1w")
+text = "Get up?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Downdirection" type="Sprite2D" parent="Area2D" unique_id=195607540]
+position = Vector2(1209.0001, 364)
+scale = Vector2(0.2753903, 0.2753903)
+texture = ExtResource("19_6ciqp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1232193212]
+position = Vector2(1209, 364)
+shape = SubResource("RectangleShape2D_dnbou")
