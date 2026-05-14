@@ -53,7 +53,7 @@ position = Vector2(619, 350)
 texture = ExtResource("1_uk6he")
 
 [node name="MonitorRemovebgPreview" type="Sprite2D" parent="." unique_id=1367133443]
-position = Vector2(640.00006, 373)
+position = Vector2(640.00006, 373.99997)
 scale = Vector2(1.6518265, 1.6518265)
 texture = ExtResource("1_pnfpb")
 

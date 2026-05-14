@@ -3,7 +3,7 @@
   "bpm": 92.29,
   "cover": "images/Covers/novacane.png",
   "music": "res://songs/novacane.mp3",
-  "color": "#17a2b8",
+  "color": "#F58727",
   "scroll_speed": 400.0,
   "notes": [
 	{

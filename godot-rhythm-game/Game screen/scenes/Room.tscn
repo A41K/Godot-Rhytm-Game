@@ -116,7 +116,7 @@ scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_r1hvx")
 
 [node name="EndlessPlatformer" type="Area2D" parent="." unique_id=1121522724]
-position = Vector2(317, 362)
+position = Vector2(-397, 394.5)
 script = ExtResource("4_d42gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="EndlessPlatformer" unique_id=115192517]
@@ -129,7 +129,7 @@ position = Vector2(151, -78)
 shape = SubResource("RectangleShape2D_bdh57")
 
 [node name="cutter" type="Area2D" parent="." unique_id=464453518]
-position = Vector2(388, 360)
+position = Vector2(-326, 392.5)
 script = ExtResource("7_d5ay3")
 
 [node name="Sprite2D" type="Sprite2D" parent="cutter" unique_id=501462224]
@@ -142,7 +142,7 @@ position = Vector2(151, -78)
 shape = SubResource("RectangleShape2D_bdh57")
 
 [node name="MinigameLabel" type="Sprite2D" parent="." unique_id=1945907368]
-position = Vector2(554, 228)
+position = Vector2(-159.99994, 260.5)
 scale = Vector2(0.32421875, 0.32421875)
 texture = ExtResource("9_w20u8")
 

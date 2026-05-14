@@ -11,6 +11,8 @@ var master_volume: float = 1.0
 var music_volume: float = 1.0
 var sfx_volume: float = 1.0
 
+var played_first_cutscene: bool = false
+
 func save_score(chart: String, score: int) -> void:
 		if not best_scores.has(chart) or score > best_scores[chart]:
 				best_scores[chart] = score
@@ -22,9 +24,24 @@ func _save_scores_to_disk() -> void:
 				file.store_string(JSON.stringify(best_scores))
 
 func save_settings_to_disk() -> void:
-		var data = { "master": master_volume, "music": music_volume, "sfx": sfx_volume }
+		var data = { "master": master_volume, "music": music_volume, "sfx": sfx_volume, "played_first_cutscene": played_first_cutscene }
 		var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
 		if file: file.store_string(JSON.stringify(data))
+
+func _save_achievements_to_disk() -> void:
+	var file = FileAccess.open("user://achievements.json", FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(achievements))
+
+func _load_achievements_from_disk() -> void:
+	if FileAccess.file_exists("user://achievements.json"):
+		var file = FileAccess.open("user://achievements.json", FileAccess.READ)
+		if file:
+			var data = JSON.parse_string(file.get_as_text())
+			if typeof(data) == TYPE_DICTIONARY:
+				for key in data.keys():
+					if achievements.has(key):
+						achievements[key]["unlocked"] = data[key].get("unlocked", false)
 
 func load_settings_from_disk() -> void:
 		if FileAccess.file_exists("user://settings.json"):
@@ -35,6 +52,7 @@ func load_settings_from_disk() -> void:
 								master_volume = data.get("master", 1.0)
 								music_volume = data.get("music", 1.0)
 								sfx_volume = data.get("sfx", 1.0)
+								played_first_cutscene = data.get("played_first_cutscene", false)
 
 func _load_scores_from_disk() -> void:
 		if FileAccess.file_exists("user://scores.json"):
@@ -47,9 +65,7 @@ func _load_scores_from_disk() -> void:
 func _init():
 		_load_scores_from_disk()
 		load_settings_from_disk()
-
-func _ready():
-		_setup_audio_buses()
+		_load_achievements_from_disk()
 
 func _setup_audio_buses():
 		if AudioServer.get_bus_count() == 1:
@@ -78,12 +94,22 @@ var achievements = {
 		},
 		"full_combo": {
 				"title": "Full Combo!",
-				"description": "Complete a song without missing.",
+				"description": "Complete all songs without missing.",
 				"unlocked": false
 		},
-		"play_story": {
-				"title": "Story Time",
-				"description": "Click on Story Mode.",
+		"day_2": {
+				"title": "Day 2",
+				"description": "Complete Day 2 of Story Mode",
+				"unlocked": false
+		},
+		"hard_mode": {
+				"title": "HardCore",
+				"description": "Complete a Hard mode song without missing",
+				"unlocked": false
+		},
+		"easy_mode": {
+				"title": "EasyMode",
+				"description": "Complete an Easy mode song without missing",
 				"unlocked": false
 		}
 }
@@ -92,6 +118,7 @@ func unlock_achievement(id: String) -> void:
 		if achievements.has(id) and not achievements[id]["unlocked"]:
 				achievements[id]["unlocked"] = true
 				show_achievement_popup(achievements[id])
+				_save_achievements_to_disk()
 
 func show_achievement_popup(data: Dictionary) -> void:
 		var canvas = CanvasLayer.new()

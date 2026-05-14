@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://door_sound_123"]
+
+[node name="DoorSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_d00r")
+bus = "Master"
+
+[ext_resource type="AudioStream" uid="uid://df2m4c3gq1w8n" path="res://sounds/door.mp3" id="1_d00r"]

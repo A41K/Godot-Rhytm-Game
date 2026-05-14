@@ -11,7 +11,7 @@ func _ready() -> void:
 		if tooltip_label:
 				tooltip_label.set_as_top_level(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 		if tooltip_label and tooltip_label.visible:
 				tooltip_label.global_position = get_global_mouse_position() + Vector2(-150, 20)
 
@@ -38,11 +38,11 @@ func _on_mouse_exited() -> void:
 		
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				print("Going to hallway")
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-				fade_and_transition("res://Game screen/scenes/Hallway.tscn")
+				fade_and_transition("res://Game screen/scenes/hallway.tscn")
 
 func fade_and_transition(scene_path: String) -> void:
 		var tree = get_tree()
@@ -63,6 +63,9 @@ func fade_and_transition(scene_path: String) -> void:
 		var tween = transition_layer.create_tween()
 		tween.tween_property(color_rect, "color", Color(0, 0, 0, 1), 0.5) 
 		await tween.finished
+		var sfx = get_node_or_null("/root/SFX")
+		if sfx:
+			sfx.play_door_sound()
 
 
 		tree.change_scene_to_file(scene_path)

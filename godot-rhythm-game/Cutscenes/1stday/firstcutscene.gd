@@ -6,6 +6,13 @@ const NEXT_SCENE := preload("res://scenes/mainscene.tscn")
 
 
 func _ready() -> void:
+	if Global.played_first_cutscene:
+		get_tree().change_scene_to_file("res://Game screen/scenes/hallway.tscn")
+		return
+
+	Global.played_first_cutscene = true
+	Global.save_settings_to_disk()
+
 	dialogue_script = """
 
 image|res://images/1stday.jpg.##sound=res://sounds/thud.mp3
@@ -26,7 +33,7 @@ right|Jamie|But, it's not like we do this everyday...
 left|You|Yeah, you have a point.
 
 image|res://images/walkhome.jpg|0.5
-background|res://images/infrontofhouse.jpg
+background|res://images/infrontofhouse.webp
 
 left|You|Well, thank you for the company. 
 left|You|Like usual I had a great time.

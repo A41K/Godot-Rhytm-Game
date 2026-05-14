@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://rlxhkimdd4bh"]
 
+[ext_resource type="Texture2D" uid="uid://dy2h3rod75x2q" path="res://images/gray.jpg" id="1_ao358"]
 [ext_resource type="Script" uid="uid://cwvfgdp2lq0qv" path="res://engine/scripts/engine.gd" id="1_hm37i"]
 [ext_resource type="PackedScene" uid="uid://484ygw0w5bde" path="res://scenes/up.tscn" id="2_mo382"]
 [ext_resource type="PackedScene" uid="uid://bmvt3ntm1v8n4" path="res://scenes/left.tscn" id="3_nshjd"]
 [ext_resource type="PackedScene" uid="uid://bdwgfrcdw8xym" path="res://scenes/down.tscn" id="4_hpy2g"]
 [ext_resource type="PackedScene" uid="uid://dtoa2e3p0khpr" path="res://scenes/right.tscn" id="5_ao358"]
+[ext_resource type="Texture2D" uid="uid://0bms7fq5urxc" path="res://images/progressbar-outside.png" id="6_outside"]
+[ext_resource type="Texture2D" uid="uid://do8kh1tp3ifpi" path="res://images/progressbar-inside.png" id="7_inside"]
 
 [node name="mainscene" type="Node2D" unique_id=1359462084]
+
+[node name="Gray" type="Sprite2D" parent="." unique_id=1971484451]
+position = Vector2(621.5, 361)
+scale = Vector2(1.7211539, 1.809756)
+texture = ExtResource("1_ao358")
 
 [node name="Engine" type="Node2D" parent="." unique_id=1457137149]
 script = ExtResource("1_hm37i")
@@ -30,9 +38,36 @@ scale = Vector2(1.5, 1.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=651332884]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=906275719]
-offset_left = 11.0
-offset_top = 683.0
-offset_right = 380.0
-offset_bottom = 718.0
+offset_left = 461.0
+offset_top = 611.0
+offset_right = 830.0
+offset_bottom = 646.0
 theme_override_font_sizes/font_size = 25
 text = "Score: 0 | Combo: 0 | Misses: 0"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=2071069382]
+offset_left = 389.0
+offset_top = 646.0
+offset_right = 901.0
+offset_bottom = 710.0
+max_value = 1.0
+step = 0.01
+texture_under = ExtResource("6_outside")
+texture_progress = ExtResource("7_inside")
+
+[node name="StartTimeLabel" type="Label" parent="CanvasLayer" unique_id=919233237]
+offset_left = 335.0
+offset_top = 661.0
+offset_right = 385.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 25
+text = "0:00"
+horizontal_alignment = 2
+
+[node name="EndTimeLabel" type="Label" parent="CanvasLayer" unique_id=1806008777]
+offset_left = 904.0
+offset_top = 661.0
+offset_right = 969.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 25
+text = "-0:00"

@@ -69,10 +69,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uejmr")
 
 [node name="CoverFrame" type="Panel" parent="." unique_id=9474301]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 194.0
-offset_right = 340.0
-offset_bottom = 404.0
+offset_left = 135.0
+offset_top = 199.0
+offset_right = 345.0
+offset_bottom = 409.0
 pivot_offset = Vector2(150, 150)
 theme_override_styles/panel = SubResource("StyleBoxFlat_cover")
 
@@ -103,10 +103,10 @@ expand_mode = 1
 
 [node name="DetailsContainer" type="VBoxContainer" parent="." unique_id=827461937]
 layout_mode = 0
-offset_left = -409.0
-offset_top = 186.0
-offset_right = -59.0
-offset_bottom = 365.0
+offset_left = -431.0
+offset_top = 198.0
+offset_right = -81.0
+offset_bottom = 377.0
 theme_override_constants/separation = 10
 
 [node name="Difficulties" type="HBoxContainer" parent="DetailsContainer" unique_id=1921243020]
@@ -158,9 +158,9 @@ theme_override_constants/separation = 15
 [node name="ScrollIndicator" type="ColorRect" parent="." unique_id=1324423035]
 layout_mode = 0
 offset_left = 1080.0
-offset_top = 221.0
+offset_top = 248.0
 offset_right = 1085.0
-offset_bottom = 503.0
+offset_bottom = 530.0
 color = Color(0.9, 0.9, 0.9, 1)
 
 [node name="BackButtonArea" type="Panel" parent="." unique_id=1854168424]
@@ -191,10 +191,10 @@ text = "Back"
 
 [node name="DayName" type="Label" parent="." unique_id=985711478]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 126.0
-offset_right = 392.0
-offset_bottom = 236.0
+offset_left = 226.0
+offset_top = 131.0
+offset_right = 468.0
+offset_bottom = 241.0
 theme_override_font_sizes/font_size = 32
 text = "Day Title
 "
@@ -202,9 +202,9 @@ horizontal_alignment = 1
 
 [node name="SongsList" type="Label" parent="." unique_id=1498109118]
 layout_mode = 0
-offset_left = 383.0
+offset_left = 397.0
 offset_top = 201.0
-offset_right = 548.0
+offset_right = 562.0
 offset_bottom = 291.0
 theme_override_font_sizes/font_size = 20
 text = "Songs: "
@@ -213,10 +213,10 @@ autowrap_mode = 3
 
 [node name="Best Score" type="Label" parent="." unique_id=660016957]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 456.0
-offset_right = 531.0
-offset_bottom = 490.0
+offset_left = 268.0
+offset_top = 457.0
+offset_right = 518.0
+offset_bottom = 491.0
 theme_override_fonts/font = ExtResource("2_01hu6")
 theme_override_font_sizes/font_size = 28
 text = "Best Overall Score: "
@@ -225,9 +225,9 @@ horizontal_alignment = 1
 [node name="EasyBtn" type="Button" parent="." unique_id=1913146609]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 0
-offset_left = 130.0
+offset_left = 136.0
 offset_top = 481.0
-offset_right = 230.0
+offset_right = 236.0
 offset_bottom = 523.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
@@ -239,9 +239,9 @@ text = "Easy"
 [node name="HardBtn" type="Button" parent="." unique_id=636911935]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 0
-offset_left = 130.0
+offset_left = 136.0
 offset_top = 428.0
-offset_right = 230.0
+offset_right = 236.0
 offset_bottom = 470.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24

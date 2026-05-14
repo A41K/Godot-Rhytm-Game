@@ -11,7 +11,7 @@ func _ready() -> void:
 		if tooltip_label:
 				tooltip_label.set_as_top_level(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 		if tooltip_label and tooltip_label.visible:
 				tooltip_label.global_position = get_global_mouse_position() + Vector2(20, 20)
 
@@ -38,7 +38,7 @@ func _on_mouse_exited() -> void:
 		
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				print("Going upstairs")
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)

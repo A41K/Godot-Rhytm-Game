@@ -12,6 +12,7 @@ var crotchet: float = 0.0
 var current_beat: int = 0
 var next_note_idx: int = 0
 var is_playing: bool = false
+var has_started_music: bool = false
 var start_offset: float = -2.0 
 
 var score: int = 0
@@ -42,6 +43,10 @@ func play_hit_sound() -> void:
 	player.finished.connect(player.queue_free)
 
 func add_hit(accuracy: float) -> void:
+
+	var global = get_node_or_null("/root/Global")
+	if global:
+		global.unlock_achievement("first_note")
 
 	if accuracy < 0.05:
 		score += 300
@@ -97,6 +102,36 @@ func show_judgement_image(judgement: String) -> void:
 	tween.parallel().tween_property(tex_rect, "modulate", Color(1, 1, 1, 0), 0.5)
 	tween.tween_callback(tex_rect.queue_free)
 
+func update_progress_ui() -> void:
+	var canvas = get_parent().get_node_or_null("CanvasLayer")
+	if not canvas or not music_player.stream:
+		return
+		
+	var p_bar = canvas.get_node_or_null("TextureProgressBar")
+	var start_lbl = canvas.get_node_or_null("StartTimeLabel")
+	var end_lbl = canvas.get_node_or_null("EndTimeLabel")
+	
+	var current_time = music_player.get_playback_position()
+	var total_time = music_player.stream.get_length()
+	
+	if p_bar:
+		p_bar.max_value = total_time
+		p_bar.value = current_time
+		
+	if start_lbl:
+		start_lbl.text = _format_time(current_time)
+		
+	if end_lbl:
+		var time_left = total_time - current_time
+		if time_left < 0:
+			time_left = 0
+		end_lbl.text = "-" + _format_time(time_left)
+
+func _format_time(time_in_sec: float) -> String:
+	var minutes = int(time_in_sec) / 60
+	var seconds = int(time_in_sec) % 60
+	return "%d:%02d" % [minutes, seconds]
+
 func update_score_ui() -> void:
 	var label = get_parent().get_node_or_null("CanvasLayer/ScoreLabel")
 	if label:
@@ -116,18 +151,21 @@ func load_chart(c_name: String) -> void:
 			crotchet = 60.0 / bpm
 			chart_data = data.get("notes", [])
 			
-			var song_name = str(data.get("song", "novacane")).to_lower().replace(" ", "")
-			var audio_mp3 = "res://songs/" + song_name + ".mp3"
-			var audio_ogg = "res://songs/" + song_name + ".ogg"
-			var audio_flac = "res://songs/" + song_name + ".flac"
-			if FileAccess.file_exists(audio_mp3):
-				music_player.stream = load(audio_mp3)
-			elif FileAccess.file_exists(audio_ogg):
-				music_player.stream = load(audio_ogg)
-			elif FileAccess.file_exists(audio_flac):
-				music_player.stream = load(audio_flac)
+			if data.has("music") and FileAccess.file_exists(data["music"]):
+				music_player.stream = load(data["music"])
 			else:
-				print("Music file not found: ", audio_mp3, " or ", audio_ogg)
+				var song_name = str(data.get("song", c_name)).to_lower().replace(" ", "")
+				var audio_mp3 = "res://songs/" + song_name + ".mp3"
+				var audio_ogg = "res://songs/" + song_name + ".ogg"
+				var audio_flac = "res://songs/" + song_name + ".flac"
+				if FileAccess.file_exists(audio_mp3):
+					music_player.stream = load(audio_mp3)
+				elif FileAccess.file_exists(audio_ogg):
+					music_player.stream = load(audio_ogg)
+				elif FileAccess.file_exists(audio_flac):
+					music_player.stream = load(audio_flac)
+				else:
+					print("Music file not found for chart: ", c_name)
 			
 			print("Loaded JSON chart '", c_name, "' with ", chart_data.size(), " notes. BPM: ", bpm)
 			start_song()
@@ -164,6 +202,7 @@ func start_song() -> void:
 	current_beat = 0
 	next_note_idx = 0
 	is_playing = true
+	has_started_music = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -177,11 +216,14 @@ func _process(delta: float) -> void:
 
 	if music_player.playing:
 		time_elapsed = music_player.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
+		
+		update_progress_ui()
 	else:
 		time_elapsed += delta
 		
-		if time_elapsed >= 0.0 and music_player.stream != null:
+		if time_elapsed >= 0.0 and music_player.stream != null and not has_started_music:
 			music_player.play()
+			has_started_music = true
 	
 
 	while next_note_idx < chart_data.size():
@@ -199,11 +241,60 @@ func _process(delta: float) -> void:
 		else:
 			break
 			
-	if next_note_idx >= chart_data.size() and time_elapsed > 0 and not music_player.playing:
-		var global = get_node_or_null("/root/Global")
-		if global:
-			global.save_score(chart_name, score)
-		get_tree().change_scene_to_file("res://scenes/Freeplay.tscn")
+	if time_elapsed > 0 and has_started_music and not music_player.playing:
+		end_song()
+
+func end_song() -> void:
+	if not is_playing: return
+	is_playing = false
+	
+	var global = get_node_or_null("/root/Global")
+	if global:
+		global.save_score(chart_name, score)
+		
+		if misses == 0:
+			global.unlock_achievement("full_combo")
+			if chart_name.ends_with("hard"):
+				global.unlock_achievement("hard_mode")
+			elif chart_name.ends_with("easy"):
+				global.unlock_achievement("easy_mode")
+				
+		if chart_name.begins_with("familyties"):
+			global.unlock_achievement("day_2")
+		
+	var canvas = get_parent().get_node_or_null("CanvasLayer")
+	if canvas:
+		var panel = PanelContainer.new()
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0, 0, 0, 0.85)
+		panel.add_theme_stylebox_override("panel", style)
+		panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+		canvas.add_child(panel)
+		
+		var vbox = VBoxContainer.new()
+		vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+		panel.add_child(vbox)
+		
+		var title = Label.new()
+		title.text = "SONG CLEARED!"
+		title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		title.add_theme_font_size_override("font_size", 64)
+		vbox.add_child(title)
+		
+		var score_lbl = Label.new()
+		score_lbl.text = "Final Score: " + str(score)
+		score_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		score_lbl.add_theme_font_size_override("font_size", 48)
+		vbox.add_child(score_lbl)
+		
+		var combo_lbl = Label.new()
+		combo_lbl.text = "Misses: " + str(misses)
+		combo_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		combo_lbl.add_theme_font_size_override("font_size", 32)
+		vbox.add_child(combo_lbl)
+		
+	await get_tree().create_timer(4.0).timeout
+	get_tree().change_scene_to_file("res://scenes/Freeplay.tscn")
 
 func spawn_note(note_data: Dictionary, hit_time: float) -> void:
 	

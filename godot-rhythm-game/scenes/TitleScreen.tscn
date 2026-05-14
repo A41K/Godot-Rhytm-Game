@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxa7ifghb4o83"]
 
 [ext_resource type="Script" uid="uid://rdsqav666g0h" path="res://scripts/title_screen.gd" id="1_ts"]
+[ext_resource type="Texture2D" uid="uid://bvp8krwwa3xti" path="res://images/titlebackground.jpg" id="2_ch40n"]
 
 [node name="TitleScreen" type="Control" unique_id=563092461]
 layout_mode = 3
@@ -19,6 +20,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="Titlebackground" type="Sprite2D" parent="ColorRect" unique_id=634605878]
+position = Vector2(622, 359)
+scale = Vector2(0.64895827, 0.66481483)
+texture = ExtResource("2_ch40n")
 
 [node name="Panel" type="Panel" parent="." unique_id=782501188]
 layout_mode = 1
