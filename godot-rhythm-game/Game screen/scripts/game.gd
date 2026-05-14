@@ -63,9 +63,8 @@ func _start_game() -> void:
 	for i in range(30):
 		var frame_index = str(i).pad_zeros(2)
 		var path = "res://Game screen/assets/loading gif images/frame_%s_delay-0.1s.png" % frame_index
-		var img = Image.load_from_file(path)
-		if img:
-			var texture = ImageTexture.create_from_image(img)
+		var texture = load(path)
+		if texture:
 			sprite_frames.add_frame("loading", texture)
 		else:
 			print("Failed to load: ", path)
