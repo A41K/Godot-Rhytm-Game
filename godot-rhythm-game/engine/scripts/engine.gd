@@ -151,18 +151,23 @@ func load_chart(c_name: String) -> void:
 			crotchet = 60.0 / bpm
 			chart_data = data.get("notes", [])
 			
-			if data.has("music") and FileAccess.file_exists(data["music"]):
+			if data.has("music") and ResourceLoader.exists(data["music"]):
 				music_player.stream = load(data["music"])
 			else:
 				var song_name = str(data.get("song", c_name)).to_lower().replace(" ", "")
+				if song_name.ends_with("_easy"):
+					song_name = song_name.left(song_name.length() - 5)
+				elif song_name.ends_with("_hard"):
+					song_name = song_name.left(song_name.length() - 5)
+					
 				var audio_mp3 = "res://songs/" + song_name + ".mp3"
 				var audio_ogg = "res://songs/" + song_name + ".ogg"
 				var audio_flac = "res://songs/" + song_name + ".flac"
-				if FileAccess.file_exists(audio_mp3):
+				if ResourceLoader.exists(audio_mp3):
 					music_player.stream = load(audio_mp3)
-				elif FileAccess.file_exists(audio_ogg):
+				elif ResourceLoader.exists(audio_ogg):
 					music_player.stream = load(audio_ogg)
-				elif FileAccess.file_exists(audio_flac):
+				elif ResourceLoader.exists(audio_flac):
 					music_player.stream = load(audio_flac)
 				else:
 					print("Music file not found for chart: ", c_name)

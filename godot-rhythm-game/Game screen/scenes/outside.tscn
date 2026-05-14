@@ -2190,7 +2190,7 @@ position = Vector2(-65, 194)
 script = ExtResource("7_4m5s5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="No camera" unique_id=951791507]
-position = Vector2(50, 182.5)
+position = Vector2(2159, 221)
 shape = SubResource("RectangleShape2D_gp10y")
 
 [node name="No camera2" type="Area2D" parent="." unique_id=1372204310]
@@ -2198,5 +2198,5 @@ position = Vector2(1215, 194)
 script = ExtResource("7_4m5s5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="No camera2" unique_id=1013450554]
-position = Vector2(50, 182.5)
+position = Vector2(414, 245)
 shape = SubResource("RectangleShape2D_gp10y")

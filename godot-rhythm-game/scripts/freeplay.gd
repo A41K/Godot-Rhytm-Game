@@ -141,6 +141,10 @@ func _on_song_selected(chart_name: String, btn: Button) -> void:
 					c_tex = load(img_path)
 					
 				
+				if c_tex == null and ResourceLoader.exists(img_path):
+					c_tex = load(img_path)
+					
+				
 				if c_tex == null and FileAccess.file_exists(img_path):
 					var img = Image.new()
 					var err = img.load(img_path)
