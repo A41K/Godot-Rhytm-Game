@@ -1,3 +1,7 @@
+(Disclaimer for the Remixed people. I only want the project to be counted with the tracked time of the last 30 days. For some reason when the maintanece was happening 3 hrs got merged inside the project that wasnt for this project. I don't want the numbers to be inflated.)
+
+The 30 day time is 25h 3m 27s
+
 This is a rhythm game made for the Remixed YSWS from Hack Club. For the 1.0 Official Release I actually thought to write
 some important info for the game.
 
